@@ -1,0 +1,663 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="彩虹论坛 - 这是一个专注于网络文化与创意交流的中文社区，提供动漫、游戏、科技及生活话题讨论，致力于打造一个开放、友善的线上交流空间。">
+    <meta name="keywords" content="彩虹论坛,网络社区,动漫讨论,游戏攻略,科技资讯,情感交流">
+    <title>彩虹论坛 - 网络文化与创意交流社区</title>
+    <style>
+        :root {
+            --primary-color: #6a11cb;
+            --secondary-color: #2575fc;
+            --accent-color: #ff0080;
+            --bg-color: #f8f9fa;
+            --card-bg: #ffffff;
+            --text-main: #333333;
+            --text-secondary: #666666;
+            --border-color: #e9ecef;
+            --spacing-unit: 16px;
+            --container-width: 1200px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.2s;
+        }
+
+        a:hover {
+            color: var(--secondary-color);
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* 布局容器 */
+        .container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 var(--spacing-unit);
+        }
+
+        /* 顶部导航 */
+        header {
+            background-color: var(--card-bg);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-wrapper {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 64px;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .logo-icon {
+            width: 24px;
+            height: 24px;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            border-radius: 50%;
+            display: inline-block;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 24px;
+        }
+
+        .nav-links a {
+            font-weight: 500;
+            color: var(--text-main);
+            font-size: 0.95rem;
+        }
+
+        .nav-links a:hover, .nav-links a.active {
+            color: var(--secondary-color);
+        }
+
+        .user-actions {
+            display: flex;
+            gap: 12px;
+            align-items: center;
+        }
+
+        .btn {
+            padding: 8px 16px;
+            border-radius: 6px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s;
+            border: none;
+        }
+
+        .btn-outline {
+            border: 1px solid var(--border-color);
+            background: transparent;
+            color: var(--text-main);
+        }
+
+        .btn-outline:hover {
+            border-color: var(--secondary-color);
+            color: var(--secondary-color);
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            box-shadow: 0 4px 12px rgba(37, 117, 252, 0.3);
+        }
+
+        .btn-primary:hover {
+            opacity: 0.9;
+            transform: translateY(-1px);
+        }
+
+        /* Hero 区域 */
+        .hero {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 48px 0;
+            text-align: center;
+            margin-bottom: 32px;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 16px;
+            font-weight: 800;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* 板块导航 */
+        .category-nav {
+            display: flex;
+            justify-content: center;
+            gap: 16px;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+        }
+
+        .cat-tag {
+            background: white;
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            box-shadow: 0 2px 6px rgba(0,0,0,0.03);
+            transition: all 0.2s;
+            cursor: pointer;
+            border: 1px solid transparent;
+        }
+
+        .cat-tag:hover, .cat-tag.active {
+            background: var(--primary-color);
+            color: white;
+            box-shadow: 0 4px 12px rgba(106, 17, 203, 0.3);
+        }
+
+        /* 内容网格 */
+        .content-grid {
+            display: grid;
+            grid-template-columns: 3fr 1fr;
+            gap: 24px;
+            margin-bottom: 48px;
+        }
+
+        /* 帖子列表 */
+        .section-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .section-title a {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            font-weight: 400;
+        }
+
+        .section-title a:hover {
+            color: var(--secondary-color);
+        }
+
+        .post-card {
+            background: var(--card-bg);
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 16px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+            border: 1px solid var(--border-color);
+            transition: transform 0.2s, box-shadow 0.2s;
+            display: flex;
+            gap: 16px;
+        }
+
+        .post-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+        }
+
+        .post-avatar {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background-color: #eee;
+            flex-shrink: 0;
+            background-image: url('https://picsum.photos/seed/avatar1/100/100');
+            background-size: cover;
+        }
+
+        .post-content {
+            flex: 1;
+        }
+
+        .post-meta {
+            font-size: 0.8rem;
+            color: #999;
+            margin-bottom: 8px;
+            display: flex;
+            gap: 12px;
+        }
+
+        .post-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 8px;
+            line-height: 1.4;
+        }
+
+        .post-title a {
+            color: var(--text-main);
+        }
+
+        .post-title a:hover {
+            color: var(--secondary-color);
+        }
+
+        .post-excerpt {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .post-stats {
+            display: flex;
+            gap: 16px;
+            font-size: 0.85rem;
+            color: #888;
+            margin-top: 12px;
+        }
+
+        .stat-item {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        /* 侧边栏 */
+        aside {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+
+        .widget {
+            background: var(--card-bg);
+            border-radius: 8px;
+            padding: 20px;
+            border: 1px solid var(--border-color);
+        }
+
+        .widget-title {
+            font-size: 1rem;
+            font-weight: 700;
+            margin-bottom: 16px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid var(--bg-color);
+        }
+
+        .rank-list li {
+            display: flex;
+            align-items: center;
+            margin-bottom: 12px;
+            font-size: 0.95rem;
+        }
+
+        .rank-num {
+            width: 20px;
+            height: 20px;
+            background: var(--bg-color);
+            color: var(--text-secondary);
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8rem;
+            margin-right: 10px;
+            font-weight: 600;
+        }
+
+        .rank-list li:nth-child(1) .rank-num { background: #ffd700; color: #fff; }
+        .rank-list li:nth-child(2) .rank-num { background: #c0c0c0; color: #fff; }
+        .rank-list li:nth-child(3) .rank-num { background: #cd7f32; color: #fff; }
+
+        .rank-list a {
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            max-width: 200px;
+        }
+
+        .hot-topic {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .topic-tag {
+            background: var(--bg-color);
+            padding: 4px 10px;
+            border-radius: 4px;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+
+        .topic-tag:hover {
+            background: var(--secondary-color);
+            color: white;
+        }
+
+        /* Banner */
+        .ad-banner {
+            width: 100%;
+            height: 90px;
+            background: linear-gradient(90deg, #f8f9fa, #e9ecef, #f8f9fa);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #999;
+            font-size: 0.9rem;
+            margin-bottom: 40px;
+            border: 1px dashed var(--border-color);
+        }
+
+        /* 页脚 */
+        footer {
+            background: #2c3e50;
+            color: #bdc3c7;
+            padding: 48px 0 24px;
+            margin-top: 60px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-col h4 {
+            color: white;
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-col ul li a:hover {
+            color: white;
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 24px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            font-size: 0.9rem;
+        }
+
+        /* 响应式 */
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            .content-grid { grid-template-columns: 1fr; }
+            .hero h1 { font-size: 1.8rem; }
+            .post-card { flex-direction: column; }
+            .post-avatar { width: 40px; height: 40px; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container nav-wrapper">
+            <a href="#" class="logo">
+                <span class="logo-icon"></span>
+                彩虹论坛
+            </a>
+            <nav class="nav-links">
+                <a href="#" class="active">首页</a>
+                <a href="#">动漫讨论</a>
+                <a href="#">游戏攻略</a>
+                <a href="#">数码科技</a>
+                <a href="#">生活杂谈</a>
+                <a href="#">资源分享</a>
+            </nav>
+            <div class="user-actions">
+                <a href="#" class="btn btn-outline">登录</a>
+                <a href="#" class="btn btn-primary">注册</a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="container">
+                <h1>探索多元世界，分享精彩生活</h1>
+                <p>彩虹论坛是一个汇聚兴趣、交流思想的开放社区。在这里，无论你是二次元爱好者、科技发烧友还是生活达人，都能找到属于你的归属感。</p>
+            </div>
+        </section>
+
+        <div class="container">
+            <!-- 分类标签 -->
+            <div class="category-nav">
+                <span class="cat-tag active">推荐</span>
+                <span class="cat-tag">最新</span>
+                <span class="cat-tag">热门</span>
+                <span class="cat-tag">关注</span>
+                <span class="cat-tag">原创</span>
+            </div>
+
+            <!-- 内容区域 -->
+            <div class="content-grid">
+                <!-- 帖子列表 -->
+                <div class="feed-column">
+                    <div class="section-title">
+                        <span>最新动态</span>
+                        <a href="#">查看更多 &rarr;</a>
+                    </div>
+
+                    <article class="post-card">
+                        <div class="post-avatar" style="background-image: url('https://picsum.photos/seed/u1/100/100');"></div>
+                        <div class="post-content">
+                            <div class="post-meta">
+                                <span>科技数码</span>
+                                <span>&bull;</span>
+                                <span>2小时前</span>
+                            </div>
+                            <h2 class="post-title"><a href="#">2024年值得入手的入门级机械键盘推荐</a></h2>
+                            <p class="post-excerpt">最近想换键盘，看了很多评测，整理了一份适合新手和办公的清单，希望能帮到大家...</p>
+                            <div class="post-stats">
+                                <span class="stat-item">💬 23 回复</span>
+                                <span class="stat-item">👍 156 点赞</span>
+                                <span class="stat-item">👁 1.2k 浏览</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="post-card">
+                        <div class="post-avatar" style="background-image: url('https://picsum.photos/seed/u2/100/100');"></div>
+                        <div class="post-content">
+                            <div class="post-meta">
+                                <span>动漫杂谈</span>
+                                <span>&bull;</span>
+                                <span>4小时前</span>
+                            </div>
+                            <h2 class="post-title"><a href="#">聊聊最近补番清单：从热血到治愈</a></h2>
+                            <p class="post-excerpt">这周一口气刷完了《葬送的芙莉莲》和《电锯人》，画风转变很大，但都非常精彩...</p>
+                            <div class="post-stats">
+                                <span class="stat-item">💬 45 回复</span>
+                                <span class="stat-item">👍 312 点赞</span>
+                                <span class="stat-item">👁 2.5k 浏览</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="post-card">
+                        <div class="post-avatar" style="background-image: url('https://picsum.photos/seed/u3/100/100');"></div>
+                        <div class="post-content">
+                            <div class="post-meta">
+                                <span>游戏攻略</span>
+                                <span>&bull;</span>
+                                <span>6小时前</span>
+                            </div>
+                            <h2 class="post-title"><a href="#">新手必看：RPG游戏中隐藏宝箱位置汇总</a></h2>
+                            <p class="post-excerpt">整理了全地图的隐藏宝箱坐标，包含武器、装备和稀有道具，建议收藏备用...</p>
+                            <div class="post-stats">
+                                <span class="stat-item">💬 89 回复</span>
+                                <span class="stat-item">👍 567 点赞</span>
+                                <span class="stat-item">👁 5.1k 浏览</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="post-card">
+                        <div class="post-avatar" style="background-image: url('https://picsum.photos/seed/u4/100/100');"></div>
+                        <div class="post-content">
+                            <div class="post-meta">
+                                <span>生活杂谈</span>
+                                <span>&bull;</span>
+                                <span>8小时前</span>
+                            </div>
+                            <h2 class="post-title"><a href="#">周末去哪里露营？推荐几个风景绝佳的露营地</a></h2>
+                            <p class="post-excerpt">天气转暖了，正好周末有空，想找个地方远离城市喧嚣，带家人出去透透气...</p>
+                            <div class="post-stats">
+                                <span class="stat-item">💬 12 回复</span>
+                                <span class="stat-item">👍 34 点赞</span>
+                                <span class="stat-item">👁 890 浏览</span>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+
+                <!-- 侧边栏 -->
+                <aside>
+                    <div class="widget">
+                        <h3 class="widget-title">热门话题</h3>
+                        <div class="hot-topic">
+                            <span class="topic-tag">#夏日祭</span>
+                            <span class="topic-tag">#数码评测</span>
+                            <span class="topic-tag">#独立游戏</span>
+                            <span class="topic-tag">#极简主义</span>
+                            <span class="topic-tag">#猫奴日常</span>
+                            <span class="topic-tag">#读书分享</span>
+                            <span class="topic-tag">#摄影技巧</span>
+                            <span class="topic-tag">#旅行攻略</span>
+                        </div>
+                    </div>
+
+                    <div class="widget">
+                        <h3 class="widget-title">版块排行</h3>
+                        <ul class="rank-list">
+                            <li>
+                                <span class="rank-num">1</span>
+                                <a href="#">[闲聊] 大家最近都在玩什么游戏？</a>
+                            </li>
+                            <li>
+                                <span class="rank-num">2</span>
+                                <a href="#">[求助] 电脑蓝屏代码0x000000怎么解决？</a>
+                            </li>
+                            <li>
+                                <span class="rank-num">3</span>
+                                <a href="#">[分享] 自制的手工巧克力教程</a>
+                            </li>
+                            <li>
+                                <span class="rank-num">4</span>
+                                <a href="#">[讨论] 你认为最好的国产动画是哪一部？</a>
+                            </li>
+                            <li>
+                                <span class="rank-num">5</span>
+                                <a href="#">[晒图] 我的书桌布置</a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="widget">
+                        <h3 class="widget-title">友情链接</h3>
+                        <ul class="rank-list">
+                            <li><a href="#">开发者社区</a></li>
+                            <li><a href="#">动漫资讯网</a></li>
+                            <li><a href="#">游戏世界</a></li>
+                            <li><a href="#">摄影之家</a></li>
+                        </ul>
+                    </div>
+                </aside>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="ad-banner">
+                广告位：彩虹论坛年度会员招募中
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>关于彩虹论坛</h4>
+                    <p style="font-size: 0.9rem; line-height: 1.8;">
+                        彩虹论坛成立于2018年，致力于为用户提供一个友好、健康的网络交流环境。我们尊重每一个用户的发言权，并鼓励理性的讨论与分享。
+                    </p>
+                </div>
+                <div class="footer-col">
+                    <h4>快速导航</h4>
+                    <ul>
+                        <li><a href="#">关于我们</a></li>
+                        <li><a href="#">服务条款</a></li>
+                        <li><a href="#">隐私政策</a></li>
+                        <li><a href="#">社区规范</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>热门版块</h4>
+                    <ul>
+                        <li><a href="#">动漫专区</a></li>
+                        <li><a href="#">游戏攻略</a></li>
+                        <li><a href="#">数码科技</a></li>
+                        <li><a href="#">生活百科</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>联系我们</h4>
+                    <ul>
+                        <li><a href="#">意见反馈</a></li>
+                        <li><a href="#">加入管理员</a></li>
+                        <li><a href="#">合作洽谈</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2024 彩虹论坛. All Rights Reserved. 保留所有权利.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+</body>
+</html>
