@@ -1,0 +1,806 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="水泽生态景观设计官网，提供水景规划、园林水系设计、生态修复及景观工程服务。专注于打造自然流畅、生态友好的水体环境。">
+    <meta name="keywords" content="水泽, 水景设计, 园林景观, 水生态修复, 水景工程, 生态水系">
+    <title>水泽-专业水景生态景观设计与工程服务</title>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #0288d1;
+            --secondary-color: #01579b;
+            --accent-color: #4fc3f7;
+            --text-main: #333333;
+            --text-light: #666666;
+            --bg-body: #f5f9fb;
+            --bg-white: #ffffff;
+            --spacing-unit: 1rem;
+            --container-width: 1200px;
+            --border-radius: 8px;
+            --shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: "PingFang SC", "Microsoft YaHei", -apple-system, BlinkMacSystemFont, sans-serif;
+            background-color: var(--bg-body);
+            color: var(--text-main);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
+        /* Utility Classes */
+        .container {
+            width: 90%;
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 var(--spacing-unit);
+        }
+
+        .section {
+            padding: 5rem 0;
+        }
+
+        .text-center { text-align: center; }
+        
+        .section-title {
+            font-size: 2.25rem;
+            color: var(--text-main);
+            margin-bottom: 1rem;
+            font-weight: 700;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 4px;
+            background: var(--primary-color);
+            margin: 0.5rem auto 0;
+            border-radius: 2px;
+        }
+
+        .section-subtitle {
+            color: var(--text-light);
+            font-size: 1.1rem;
+            max-width: 700px;
+            margin: 0 auto 3rem;
+        }
+
+        /* Header & Nav */
+        header {
+            background-color: var(--bg-white);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 80px;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .logo span {
+            color: var(--text-main);
+        }
+
+        nav ul {
+            display: flex;
+            gap: 2rem;
+        }
+
+        nav a {
+            font-weight: 500;
+            color: var(--text-main);
+            transition: var(--transition);
+            position: relative;
+        }
+
+        nav a:hover {
+            color: var(--primary-color);
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary-color);
+            transition: var(--transition);
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        .btn-primary {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 0.6rem 1.5rem;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: var(--transition);
+            display: inline-block;
+        }
+
+        .btn-primary:hover {
+            background-color: var(--secondary-color);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 10px rgba(2, 136, 209, 0.3);
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            height: 600px;
+            background: linear-gradient(135deg, rgba(2, 136, 209, 0.9), rgba(1, 87, 155, 0.8)), 
+                        url('https://picsum.photos/seed/waterscape/1920/1080.jpg') center/cover no-repeat;
+            display: flex;
+            align-items: center;
+            color: white;
+            margin-bottom: 2rem;
+        }
+
+        .hero-content {
+            max-width: 700px;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        .hero-tags {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .tag {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 0.3rem 0.8rem;
+            border-radius: 4px;
+            font-size: 0.9rem;
+            backdrop-filter: blur(4px);
+        }
+
+        /* Services Grid */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .service-card {
+            background: var(--bg-white);
+            padding: 2.5rem;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            border-top: 4px solid transparent;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            border-top-color: var(--primary-color);
+        }
+
+        .icon-box {
+            width: 60px;
+            height: 60px;
+            background-color: rgba(2, 136, 209, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+            color: var(--primary-color);
+            font-size: 1.5rem;
+        }
+
+        .service-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .service-card p {
+            color: var(--text-light);
+            font-size: 0.95rem;
+        }
+
+        /* Showcase / Projects */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.5rem;
+        }
+
+        .project-card {
+            position: relative;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            aspect-ratio: 4/3;
+            cursor: pointer;
+        }
+
+        .project-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .project-card:hover img {
+            transform: scale(1.1);
+        }
+
+        .project-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+            padding: 1.5rem;
+            color: white;
+            opacity: 0;
+            transition: var(--transition);
+        }
+
+        .project-card:hover .project-overlay {
+            opacity: 1;
+        }
+
+        .project-overlay h4 {
+            font-size: 1.1rem;
+            margin-bottom: 0.3rem;
+        }
+
+        .project-overlay p {
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+
+        /* About & Philosophy */
+        .about-section {
+            background-color: var(--bg-white);
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .about-text h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .about-text p {
+            margin-bottom: 1.5rem;
+            color: var(--text-light);
+        }
+
+        .feature-list li {
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: flex-start;
+            gap: 0.8rem;
+        }
+
+        .check-icon {
+            color: var(--primary-color);
+            font-weight: bold;
+            font-size: 1.2rem;
+            margin-top: -3px;
+        }
+
+        .about-image img {
+            border-radius: var(--border-radius);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        /* Stats Bar */
+        .stats-bar {
+            background-color: var(--secondary-color);
+            color: white;
+            padding: 3rem 0;
+        }
+
+        .stats-grid {
+            display: flex;
+            justify-content: space-around;
+            text-align: center;
+        }
+
+        .stat-item h4 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-item p {
+            font-size: 1rem;
+            opacity: 0.8;
+        }
+
+        /* FAQ Section */
+        .faq-section {
+            background-color: #f0f7fb;
+        }
+
+        .faq-grid {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            background: white;
+            margin-bottom: 1rem;
+            border-radius: var(--border-radius);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            overflow: hidden;
+        }
+
+        .faq-question {
+            padding: 1.5rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+
+        .faq-answer {
+            padding: 0 1.5rem;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+            color: var(--text-light);
+            background-color: #fafafa;
+        }
+
+        .faq-item.active .faq-answer {
+            padding-bottom: 1.5rem;
+            max-height: 200px;
+        }
+
+        .faq-item.active .faq-question {
+            color: var(--primary-color);
+        }
+
+        /* Footer */
+        footer {
+            background-color: #1a2329;
+            color: #b0bec5;
+            padding: 4rem 0 2rem;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-brand h2 {
+            color: white;
+            margin-bottom: 1rem;
+            font-size: 1.8rem;
+        }
+
+        .footer-brand p {
+            max-width: 300px;
+            font-size: 0.9rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-col h4 {
+            color: white;
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-col ul li a:hover {
+            color: var(--primary-color);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 2rem;
+            text-align: center;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-container {
+                flex-direction: column;
+                height: auto;
+                padding: 1rem 0;
+            }
+            
+            nav ul {
+                margin-top: 1rem;
+                gap: 1rem;
+                font-size: 0.9rem;
+            }
+
+            .hero {
+                height: 500px;
+                text-align: center;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-tags {
+                justify-content: center;
+            }
+
+            .projects-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .stats-grid {
+                flex-direction: column;
+                gap: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="container nav-container">
+            <a href="#" class="logo">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M12 2.69l5.74 5.74c1.65 1.65 2.56 3.83 2.56 6.11 0 4.48-3.62 8.1-8.1 8.1s-8.1-3.62-8.1-8.1c0-2.28.91-4.46 2.56-6.11L12 2.69z"></path>
+                    <path d="M12 2.69v18.62"></path>
+                </svg>
+                水泽<span>景观</span>
+            </a>
+            <nav>
+                <ul>
+                    <li><a href="#home">首页</a></li>
+                    <li><a href="#services">业务范围</a></li>
+                    <li><a href="#projects">案例展示</a></li>
+                    <li><a href="#about">关于我们</a></li>
+                    <li><a href="#faq">常见问题</a></li>
+                </ul>
+            </nav>
+            <a href="#contact" class="btn-primary">免费咨询</a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="container hero-content">
+            <div class="hero-tags">
+                <span class="tag">水生态修复</span>
+                <span class="tag">景观设计</span>
+                <span class="tag">智慧水务</span>
+            </div>
+            <h1>让每一滴水都焕发生机</h1>
+            <p>水泽景观专注于高品质水景生态系统的规划与建设。我们结合自然美学与生态技术，为您打造灵动、健康且可持续的水体环境。</p>
+            <a href="#projects" class="btn-primary" style="padding: 0.8rem 2rem; font-size: 1.1rem;">查看案例</a>
+            <a href="#services" style="margin-left: 1rem; color: white; text-decoration: underline; opacity: 0.9;">了解服务</a>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="section">
+        <div class="container">
+            <div class="text-center">
+                <h2 class="section-title">核心业务</h2>
+                <p class="section-subtitle">从源头规划到后期维护，提供一站式水生态解决方案</p>
+            </div>
+            <div class="services-grid">
+                <article class="service-card">
+                    <div class="icon-box">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.69l5.74 5.74c1.65 1.65 2.56 3.83 2.56 6.11 0 4.48-3.62 8.1-8.1 8.1s-8.1-3.62-8.1-8.1c0-2.28.91-4.46 2.56-6.11L12 2.69z"></path></svg>
+                    </div>
+                    <h3>水景生态设计</h3>
+                    <p>根据场地特点，设计自然流动的溪流、湖泊、喷泉等水体形态，营造静谧与活力的空间氛围。</p>
+                </article>
+                <article class="service-card">
+                    <div class="icon-box">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"></path></svg>
+                    </div>
+                    <h3>水生态修复</h3>
+                    <p>针对黑臭水体、富营养化水域，通过水生植物群落构建和微生物调控，恢复水体自净能力。</p>
+                </article>
+                <article class="service-card">
+                    <div class="icon-box">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>
+                    </div>
+                    <h3>景观工程实施</h3>
+                    <p>提供从土建施工、驳岸处理到水循环系统安装的全流程工程服务，确保设计效果完美落地。</p>
+                </article>
+                <article class="service-card">
+                    <div class="icon-box">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+                    </div>
+                    <h3>养护与运营</h3>
+                    <p>建立科学的定期养护制度，包括水质监测、植被修剪、设备维护，延长水景使用寿命。</p>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="section" style="background-color: #f8fbff;">
+        <div class="container">
+            <div class="text-center">
+                <h2 class="section-title">精选案例</h2>
+                <p class="section-subtitle">探索我们为不同场景打造的水泽生态解决方案</p>
+            </div>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <img src="https://picsum.photos/seed/lake/400/300" alt="城市公园湖景">
+                    <div class="project-overlay">
+                        <h4>城市中央公园生态湖</h4>
+                        <p>生态修复与景观营造</p>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <img src="https://picsum.photos/seed/stream/400/300" alt="别墅区溪流景观">
+                    <div class="project-overlay">
+                        <h4>高端别墅区叠水溪流</h4>
+                        <p>私属水景定制设计</p>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <img src="https://picsum.photos/seed/fountain/400/300" alt="商业广场音乐喷泉">
+                    <div class="project-overlay">
+                        <h4>城市商业广场音乐喷泉</h4>
+                        <p>动态水景互动体验</p>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <img src="https://picsum.photos/seed/pond/400/300" alt="社区景观水系">
+                    <div class="project-overlay">
+                        <h4>大型社区生态水系</h4>
+                        <p>海绵城市雨水管理</p>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center" style="margin-top: 2rem;">
+                <a href="#" class="btn-primary" style="background: transparent; border: 2px solid var(--primary-color); color: var(--primary-color);">查看更多案例</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="section about-section">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-image">
+                    <img src="https://picsum.photos/seed/landscapearchitect/600/500" alt="景观设计师团队">
+                </div>
+                <div class="about-text">
+                    <h3>关于水泽</h3>
+                    <p>水泽景观设计团队深耕水生态领域十余年，我们坚信水是景观的灵魂。我们的使命是通过科学的设计与精细的施工，将水景打造成为连接人与自然的绿色纽带。</p>
+                    <p>我们拒绝千篇一律的复制，致力于挖掘每一块场地的独特水性，提供具有地域特色和生命力的水生态解决方案。</p>
+                    <ul class="feature-list">
+                        <li><span class="check-icon">✓</span> 10年以上行业经验团队</li>
+                        <li><span class="check-icon">✓</span> 获得多项国家级景观设计奖项</li>
+                        <li><span class="check-icon">✓</span> 拥有自主研发的水质净化技术专利</li>
+                        <li><span class="check-icon">✓</span> 全程一对一项目管家服务</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats-bar">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <h4>12+</h4>
+                    <p>年行业深耕</p>
+                </div>
+                <div class="stat-item">
+                    <h4>500+</h4>
+                    <p>成功交付项目</p>
+                </div>
+                <div class="stat-item">
+                    <h4>50+</h4>
+                    <p>专业设计师</p>
+                </div>
+                <div class="stat-item">
+                    <h4>98%</h4>
+                    <p>客户满意度</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="section faq-section">
+        <div class="container">
+            <div class="text-center">
+                <h2 class="section-title">常见问题</h2>
+                <p class="section-subtitle">关于水景设计与施工的解答</p>
+            </div>
+            <div class="faq-grid">
+                <div class="faq-item">
+                    <div class="faq-question">水景设计需要多长时间？</div>
+                    <div class="faq-answer">
+                        <p>设计周期通常根据项目规模而定，小型景观约需2-4周，大型综合性水系项目可能需要1-3个月。我们会根据您的需求制定详细的时间表。</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">如何保证水质的清洁与循环？</div>
+                    <div class="faq-answer">
+                        <p>我们采用“生态自净+人工循环”相结合的方式。通过构建水生植物净化系统、安装循环过滤设备以及定期投放益生菌，确保水体清澈透明。</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">水景的维护成本高吗？</div>
+                    <div class="faq-answer">
+                        <p>维护成本主要取决于水体的规模和功能。我们的设计理念是尽量减少人工干预，通过生态平衡来降低长期维护难度和费用。</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">你们提供施工服务吗？</div>
+                    <div class="faq-answer">
+                        <p>是的，我们拥有专业的工程实施团队，提供从土建、水电到水景安装的一体化施工服务，确保设计效果不缩水。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <h2>水泽景观</h2>
+                    <p>致力于创造可持续发展的水生态环境，让每一处水景都充满生机与活力。</p>
+                    <p>地址：中国·上海市浦东新区滨江大道88号<br>电话：400-888-8888</p>
+                </div>
+                <div class="footer-col">
+                    <h4>快速链接</h4>
+                    <ul>
+                        <li><a href="#home">回到首页</a></li>
+                        <li><a href="#services">服务项目</a></li>
+                        <li><a href="#projects">案例展示</a></li>
+                        <li><a href="#about">关于我们</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>服务范围</h4>
+                    <ul>
+                        <li><a href="#">市政景观</a></li>
+                        <li><a href="#">地产配套</a></li>
+                        <li><a href="#">文旅景区</a></li>
+                        <li><a href="#">庭院私属</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>关注我们</h4>
+                    <ul>
+                        <li><a href="#">微信公众号</a></li>
+                        <li><a href="#">新浪微博</a></li>
+                        <li><a href="#">知乎专栏</a></li>
+                        <li><a href="#">抖音号</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 水泽景观设计工程有限公司 版权所有 | 沪ICP备12345678号</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Simple FAQ Accordion Logic
+        document.addEventListener('DOMContentLoaded', function() {
+            const faqItems = document.querySelectorAll('.faq-item');
+
+            faqItems.forEach(item => {
+                const question = item.querySelector('.faq-question');
+                question.addEventListener('click', () => {
+                    // Close other items
+                    faqItems.forEach(otherItem => {
+                        if (otherItem !== item) {
+                            otherItem.classList.remove('active');
+                        }
+                    });
+                    // Toggle current item
+                    item.classList.toggle('active');
+                });
+            });
+
+            // Smooth scroll for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href');
+                    if (targetId === '#') return;
+                    
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 80, // Offset for sticky header
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+  </html>
