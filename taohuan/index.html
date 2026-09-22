@@ -1,0 +1,651 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="桃花女 - 中国民间传说中擅长奇门遁甲与占卜术的著名女神。本站收录桃花女的生平故事、民间传说、与周公斗法的精彩情节、奇门遁甲的基础知识，以及相关的民俗文化研究。">
+    <meta name="keywords" content="桃花女, 民间传说, 周公, 奇门遁甲, 民俗文化, 中国神话">
+    <title>桃花女-民间传说与民俗文化研究门户</title>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #d6404b; /* 桃花红 */
+            --secondary-color: #ff8a80; /* 浅桃红 */
+            --bg-color: #fff9f9; /* 极淡的粉色背景 */
+            --text-main: #333333;
+            --text-light: #666666;
+            --accent-green: #4caf50;
+            --card-shadow: 0 4px 12px rgba(214, 64, 75, 0.1);
+            --font-serif: "Songti SC", "SimSun", serif;
+            --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: var(--font-sans);
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.3s;
+        }
+
+        a:hover {
+            color: var(--primary-color);
+        }
+
+        /* 布局容器 */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* 头部设计 */
+        header {
+            background: #fff;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+
+        .logo {
+            font-family: var(--font-serif);
+            font-size: 24px;
+            font-weight: bold;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo span {
+            font-size: 14px;
+            color: var(--text-light);
+            font-family: var(--font-sans);
+            font-weight: normal;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        nav a {
+            font-size: 16px;
+            font-weight: 500;
+            color: var(--text-main);
+        }
+
+        nav a.active {
+            color: var(--primary-color);
+        }
+
+        /* Hero 区域 */
+        .hero {
+            background: linear-gradient(135deg, #fff0f0 0%, #ffe6e6 100%);
+            padding: 80px 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: "";
+            position: absolute;
+            top: -50px;
+            right: -50px;
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(255,255,255,0.8) 0%, rgba(255,255,255,0) 70%);
+            border-radius: 50%;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-family: var(--font-serif);
+            font-size: 48px;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 18px;
+            color: var(--text-light);
+            margin-bottom: 30px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background-color: var(--primary-color);
+            color: white;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: background 0.3s, transform 0.2s;
+        }
+
+        .btn:hover {
+            background-color: #b9363f;
+            transform: translateY(-2px);
+        }
+
+        /* 介绍区 */
+        .intro-section {
+            padding: 60px 0;
+        }
+
+        .intro-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .intro-text h2 {
+            font-family: var(--font-serif);
+            font-size: 32px;
+            margin-bottom: 20px;
+            color: var(--text-main);
+        }
+
+        .intro-text p {
+            margin-bottom: 15px;
+            color: var(--text-light);
+            text-align: justify;
+        }
+
+        .intro-visual {
+            background: #fff;
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: var(--card-shadow);
+            text-align: center;
+        }
+
+        .intro-visual img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            object-fit: cover;
+            filter: sepia(20%) contrast(90%);
+        }
+
+        /* 核心故事：斗周公 */
+        .story-section {
+            background: #fff;
+            padding: 80px 0;
+            border-top: 1px solid #eee;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-header h2 {
+            font-family: var(--font-serif);
+            font-size: 36px;
+            color: var(--text-main);
+            margin-bottom: 10px;
+        }
+
+        .section-header .divider {
+            width: 60px;
+            height: 4px;
+            background: var(--primary-color);
+            margin: 0 auto;
+            border-radius: 2px;
+        }
+
+        .story-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .story-card {
+            background: var(--bg-color);
+            padding: 30px;
+            border-radius: 12px;
+            border-left: 4px solid var(--primary-color);
+            transition: transform 0.3s;
+        }
+
+        .story-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .story-card h3 {
+            font-size: 20px;
+            margin-bottom: 15px;
+            font-weight: bold;
+        }
+
+        .story-card p {
+            font-size: 15px;
+            color: var(--text-light);
+            margin-bottom: 15px;
+        }
+
+        .story-card .tag {
+            display: inline-block;
+            font-size: 12px;
+            padding: 4px 8px;
+            background: rgba(214, 64, 75, 0.1);
+            color: var(--primary-color);
+            border-radius: 4px;
+        }
+
+        /* 奇门遁甲知识 */
+        .knowledge-section {
+            padding: 80px 0;
+        }
+
+        .knowledge-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+        }
+
+        .knowledge-content {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .knowledge-list {
+            list-style: none;
+        }
+
+        .knowledge-list li {
+            margin-bottom: 20px;
+            padding-left: 20px;
+            position: relative;
+        }
+
+        .knowledge-list li::before {
+            content: "✦";
+            color: var(--primary-color);
+            position: absolute;
+            left: 0;
+            top: 2px;
+        }
+
+        .knowledge-list h4 {
+            font-size: 18px;
+            margin-bottom: 8px;
+        }
+
+        .knowledge-list p {
+            font-size: 14px;
+            color: var(--text-light);
+        }
+
+        .knowledge-sidebar {
+            flex: 0 0 300px;
+            background: var(--text-main);
+            color: #fff;
+            padding: 30px;
+            border-radius: 12px;
+        }
+
+        .knowledge-sidebar h3 {
+            font-family: var(--font-serif);
+            margin-bottom: 20px;
+            border-bottom: 1px solid rgba(255,255,255,0.2);
+            padding-bottom: 10px;
+        }
+
+        .knowledge-sidebar ul {
+            list-style: none;
+        }
+
+        .knowledge-sidebar li {
+            margin-bottom: 10px;
+        }
+
+        .knowledge-sidebar a {
+            color: rgba(255,255,255,0.8);
+            font-size: 14px;
+        }
+
+        .knowledge-sidebar a:hover {
+            color: #fff;
+            text-decoration: underline;
+        }
+
+        /* 常见问题 */
+        .faq-section {
+            background: #fff;
+            padding: 60px 0;
+        }
+
+        .faq-item {
+            border-bottom: 1px solid #eee;
+            padding: 20px 0;
+        }
+
+        .faq-question {
+            font-weight: 600;
+            font-size: 18px;
+            margin-bottom: 10px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .faq-question::after {
+            content: "+";
+            color: var(--primary-color);
+            font-size: 24px;
+        }
+
+        .faq-item.active .faq-question::after {
+            content: "-";
+        }
+
+        .faq-answer {
+            color: var(--text-light);
+            font-size: 15px;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+        }
+
+        .faq-item.active .faq-answer {
+            max-height: 200px;
+        }
+
+        /* 页脚 */
+        footer {
+            background: #333;
+            color: #aaa;
+            padding: 50px 0 20px;
+            font-size: 14px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-col h4 {
+            color: #fff;
+            margin-bottom: 20px;
+            font-size: 16px;
+        }
+
+        .footer-col ul {
+            list-style: none;
+        }
+
+        .footer-col li {
+            margin-bottom: 10px;
+        }
+
+        .footer-col a:hover {
+            color: var(--primary-color);
+        }
+
+        .copyright {
+            text-align: center;
+            border-top: 1px solid #444;
+            padding-top: 20px;
+        }
+
+        /* 响应式适配 */
+        @media (max-width: 768px) {
+            .header-inner {
+                flex-direction: column;
+                height: auto;
+                padding: 15px 0;
+                gap: 15px;
+            }
+
+            nav ul {
+                gap: 15px;
+                font-size: 14px;
+            }
+
+            .hero h1 {
+                font-size: 32px;
+            }
+
+            .intro-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .knowledge-sidebar {
+                flex: 1;
+                min-width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container header-inner">
+            <div class="logo">
+                桃花女
+                <span>民间传说与民俗文化</span>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#" class="active">首页</a></li>
+                    <li><a href="#story">斗周公</a></li>
+                    <li><a href="#knowledge">奇门遁甲</a></li>
+                    <li><a href="#faq">常见问题</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="container hero-content">
+                <h1>桃花女斗周公</h1>
+                <p>中国民间传说中最具传奇色彩的女神之一。她精通奇门遁甲之术，以智慧与法术化解危机，留下了无数脍炙人口的斗法故事。</p>
+                <a href="#story" class="btn">阅读传说故事</a>
+            </div>
+        </section>
+
+        <!-- Introduction Section -->
+        <section class="intro-section container">
+            <div class="intro-grid">
+                <div class="intro-text">
+                    <h2>谁是桃花女？</h2>
+                    <p>桃花女，又称桃花仙子，是中国民间传说中的神祇，与周公齐名。她擅长五行八卦、奇门遁甲等方术，能够预知吉凶祸福，驱邪避灾。</p>
+                    <p>在民间故事中，桃花女通常被描绘成一位年轻貌美、机智勇敢的女性形象。她与周公之间既有竞争也有合作，两人的斗法故事充满了幽默与智慧，反映了古人对自然规律和命运掌控的想象。</p>
+                    <p>桃花女的形象不仅代表了女性的智慧与力量，也承载了中国传统文化中对“阴阳调和”、“趋吉避凶”的朴素愿望。</p>
+                </div>
+                <div class="intro-visual">
+                    <!-- 使用占位图，模拟传统风格插画 -->
+                    <img src="https://picsum.photos/seed/taohuannv/600/400" alt="桃花女与周公斗法插画">
+                </div>
+            </div>
+        </section>
+
+        <!-- Core Stories Section -->
+        <section id="story" class="story-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2>经典斗法故事</h2>
+                    <div class="divider"></div>
+                </div>
+                <div class="story-grid">
+                    <article class="story-card">
+                        <span class="tag">初遇</span>
+                        <h3>桃花仙子下凡</h3>
+                        <p>桃花女本为桃花山上的仙子，因贪玩下凡。她生性活泼，精通法术，游历人间时遇到了精通天文地理的周公。两人初次见面便因理念不同而产生争执。</p>
+                    </article>
+                    <article class="story-card">
+                        <span class="tag">智斗</span>
+                        <h3>破解嫁娶吉日</h3>
+                        <p>周公为了考验桃花女，故意选了一个“绝日”作为吉日。桃花女则运用五行生克之理，巧妙化解了周公的阵法，证明了阴阳调和的重要性。</p>
+                    </article>
+                    <article class="story-card">
+                        <span class="tag">结局</span>
+                        <h3>惺惺相惜</h3>
+                        <p>经过多次斗法，周公被桃花女的聪明才智所折服，两人从对手变成了知己。这段故事流传至今，成为了民间文学中的佳话。</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Knowledge Section -->
+        <section id="knowledge" class="knowledge-section container">
+            <div class="section-header">
+                <h2>奇门遁甲文化</h2>
+                <div class="divider"></div>
+            </div>
+            <div class="knowledge-container">
+                <div class="knowledge-content">
+                    <ul class="knowledge-list">
+                        <li>
+                            <h4>什么是奇门遁甲？</h4>
+                            <p>奇门遁甲是中国古代术数著作，也是奇门、六壬、太乙“三式”之首，被称为“帝王之学”。它以十天干中的“乙、丙、丁”为三奇，以“戊、己、庚、辛、壬、癸”为六仪，共八门，结合九星、八神等符号，推演吉凶。</p>
+                        </li>
+                        <li>
+                            <h4>桃花女与奇门遁甲</h4>
+                            <p>在传说中，桃花女是奇门遁甲的高手。她能够通过观察天象、方位，推算出吉时吉地，甚至在周公设下的陷阱中反败为胜。这反映了古人对天文历法的高度重视。</p>
+                        </li>
+                        <li>
+                            <h4>应用场景</h4>
+                            <p>虽然现代社会中奇门遁甲多用于民俗研究或玄学探讨，但其背后的“统筹规划”和“环境分析”思想，对现代人的决策仍有启发意义。</p>
+                        </li>
+                    </ul>
+                </div>
+                <aside class="knowledge-sidebar">
+                    <h3>相关词条</h3>
+                    <ul>
+                        <li><a href="#">周公解梦</a></li>
+                        <li><a href="#">风水学</a></li>
+                        <li><a href="#">阴阳五行</a></li>
+                        <li><a href="#">民俗传说</a></li>
+                        <li><a href="#">八卦图</a></li>
+                    </ul>
+                </aside>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section id="faq" class="faq-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2>常见问题</h2>
+                    <div class="divider"></div>
+                </div>
+                <div style="max-width: 800px; margin: 0 auto;">
+                    <div class="faq-item">
+                        <div class="faq-question">桃花女是真实存在的人物吗？</div>
+                        <div class="faq-answer">桃花女是民间传说中的虚构人物，主要出现在戏曲、评书和神话故事中，并非历史记载中的真实人物。</div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">桃花女的故事反映了什么文化内涵？</div>
+                        <div class="faq-answer">这些故事反映了古代女性对命运的抗争、对智慧的推崇，以及阴阳调和、趋吉避凶的传统民俗观念。</div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">奇门遁甲在现代社会还有用吗？</div>
+                        <div class="faq-answer">奇门遁甲作为传统文化瑰宝，更多是作为历史和哲学的研究对象。在现代社会，其逻辑思维和统筹规划的理念具有一定的参考价值。</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-col">
+                    <h4>关于桃花女</h4>
+                    <p>本站致力于整理与传播中国民间传说，特别是以桃花女与周公斗法为主题的经典故事与民俗文化。</p>
+                </div>
+                <div class="footer-col">
+                    <h4>内容分类</h4>
+                    <ul>
+                        <li><a href="#">神话传说</a></li>
+                        <li><a href="#">民俗文化</a></li>
+                        <li><a href="#">历史人物</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>联系方式</h4>
+                    <ul>
+                        <li>邮箱：contact@example.com</li>
+                        <li>地址：中国传统文化研究网</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 桃花女民俗文化研究网. 保留所有权利.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // 简单的 FAQ 手风琴交互
+        document.addEventListener('DOMContentLoaded', function() {
+            const faqItems = document.querySelectorAll('.faq-item');
+
+            faqItems.forEach(item => {
+                const question = item.querySelector('.faq-question');
+                question.addEventListener('click', () => {
+                    // 关闭其他打开的项
+                    faqItems.forEach(otherItem => {
+                        if (otherItem !== item) {
+                            otherItem.classList.remove('active');
+                        }
+                    });
+                    // 切换当前项
+                    item.classList.toggle('active');
+                });
+            });
+
+            // 导航栏平滑滚动
+            document.querySelectorAll('nav a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href');
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        targetElement.scrollIntoView({
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
